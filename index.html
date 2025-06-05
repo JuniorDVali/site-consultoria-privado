@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Vali Consultoria em Planos de Saúde</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consultoria especializada em planos de saúde para você, sua família ou empresa.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #0e2259;
+      --accent: #22c55e;
+      --bg: #f5f8ff;
+      --card-bg: #fff;
+      --text: #222b45;
+      --muted: #6b7280;
+      --radius: 18px;
+      --shadow: 0 8px 36px rgba(34,65,168,0.07);
+    }
+    * { box-sizing: border-box; }
+    body {
+	  font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      color: var(--text);
+    }
+    header {
+      background: linear-gradient(100deg, var(--primary) 40%, var(--secondary) 100%);
+      color: #fff;
+      padding: 48px 0 48px 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+    header h1 {
+      font-size: 2.7rem;
+      font-weight: 300;
+      margin: 0 0 14px;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      font-size: 1.21rem;
+      max-width: 510px;
+      margin: 0 auto;
+      color: #e0e7ff;
+      font-weight: 400;
+    }
+    .nav {
+      display: flex;
+      gap: 34px;
+      justify-content: center;
+      margin-bottom: 0px;
+      margin-top: 6px;
+    }
+    .nav a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.18s;
+      font-size: 1.06rem;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+    .nav a:hover {
+      color: #fff;
+      border-bottom: 2px solid #fff;
+    }
+    .container {
+      max-width: 1140px;
+      margin: -40px auto 0 auto;
+      padding: 0 2vw 28px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+      padding: 2.7rem 2.2rem 2.2rem 2.2rem;
+      display: flex;
+      flex-direction: row;
+      gap: 38px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .card-img {
+      flex: 0 0 180px;
+      max-width: 180px;
+      margin-left: -20px;
+      filter: drop-shadow(0 2px 12px #dbeafe);
+      border-radius: var(--radius);
+    }
+    .card-logo {
+	  margin: 0;
+      flex: 0 0 180px;
+      max-width: 180px;
+      margin-left: -20px;
+      filter: drop-shadow(0 2px 12px #dbeafe);
+      border-radius: var(--radius);
+    }
+    .card-content {
+      flex: 1 1 0;
+      min-width: 180px;
+    }
+    .card-content h2 {
+      color: var(--primary);
+      font-size: 1.48rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 10px;
+      letter-spacing: 0.4px;
+    }
+    .card-content ul {
+      margin: 0 0 0 18px;
+      padding: 0;
+      color: var(--secondary);
+      font-size: 1.04rem;
+      line-height: 1.7;
+    }
+    .cta-section {
+      background: linear-gradient(95deg, var(--primary) 60%, var(--accent) 100%);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 30px auto 36px auto;
+      padding: 2.5rem 1.3rem 2.1rem 1.3rem;
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .cta-section h3 {
+      color: #fff;
+      font-size: 1.38rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .cta-section p {
+      color: #dbeafe;
+      font-size: 1.08rem;
+      margin-bottom: 19px;
+      text-align: center;
+    }
+    .cta-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0.95rem 2.1rem;
+      font-size: 1.11rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 18px 0 rgba(34, 197, 94, 0.14);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: background 0.19s, transform 0.19s;
+      margin-bottom: 8px;
+    }
+    .cta-btn:hover { background: #16a34a; transform: translateY(-2px) scale(1.03);}
+    .cta-section small {
+      color: #fff;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 7px;
+      opacity: 0.9;
+    }
+    /* Depoimentos */
+    .depoimentos-section {
+      max-width: 700px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+    .depoimentos-section h2 {
+      color: var(--primary);
+      font-size: 1.33rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .depo-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .depo {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(34, 65, 168, 0.08);
+      padding: 1.5rem 1.1rem 1.3rem 1.1rem;
+      max-width: 270px;
+      min-width: 180px;
+      text-align: left;
+      font-size: 1rem;
+      color: var(--secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+    }
+    .depo i { color: var(--accent); font-size: 1.2rem; margin-bottom: 6px;}
+    .depo strong { color: var(--primary); font-size: 1.02rem; margin-top: 8px;}
+    /* FAQ */
+    .faq-section {
+      max-width: 650px;
+      margin: 0 auto 42px;
+    }
+    .faq-section h2 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .faq-item {
+      border-radius: 9px;
+      background: #f3f6fd;
+      box-shadow: 0 2px 10px rgba(34,65,168,0.04);
+      margin-bottom: 11px;
+      overflow: hidden;
+    }
+    .faq-q {
+      font-weight: 600;
+      padding: 1rem 1.1rem;
+      color: var(--primary);
+      background: #e0e7ff;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.16s;
+    }
+    .faq-q::after {
+      content: '\f078';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      right: 18px;
+      transition: transform 0.3s;
+    }
+    .faq-q.open::after {
+      transform: rotate(180deg);
+    }
+    .faq-a {
+	  padding: 10px;
+	  padding-bottom: 0;
+      color: var(--secondary);
+      font-size: 1.04rem;
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    .faq-a.open {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Footer */
+    footer {
+      margin-top: 30px;
+      color: var(--primary);
+      font-size: 0.99rem;
+      text-align: center;
+      opacity: 0.75;
+      padding-bottom: 16px;
+    }
+    /* Responsivo */
+    @media (max-width: 820px) {
+      .container { padding: 0 1vw 28px;}
+      .card { flex-direction: column; gap: 22px; padding: 2.3rem 1.2rem 1.7rem;}
+      .card-img { margin: 0 auto; }
+    }
+    @media (max-width: 550px) {
+      header { padding: 24px 0 32px 0; }
+      header h1 { font-size: 1.25rem;}
+      .card, .cta-section, .faq-section, .depoimentos-section { padding-left: 0; padding-right: 0;}
+      .card { padding: 1.3rem 0.5rem 1.1rem;}
+      .cta-section { padding: 1.7rem 0.7rem 1.4rem;}
+    }
+	
+	.parceiros-section {
+	  max-width: 950px;
+	  margin: 0 auto 44px auto;
+	  padding-top: 18px;
+	  text-align: center;
+	}
+	.parceiros-section h2 {
+	  color: var(--primary);
+	  font-size: 1.32rem;
+	  font-weight: 800;
+	  margin-bottom: 8px;
+	  letter-spacing: 0.2px;
+	}
+	.parceiros-section p {
+	  color: var(--muted);
+	  font-size: 1.06rem;
+	  margin-bottom: 23px;
+	}
+	.parceiros-grid {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+	  gap: 26px 16px;
+	  align-items: center;
+	  justify-items: center;
+	  background: #f7fafd;
+	  padding: 24px 10px;
+	  border-radius: 14px;
+	  box-shadow: 0 2px 18px 0 rgba(34, 65, 168, 0.05);
+	}
+	.parceiros-grid img {
+	  max-width: 96px;
+	  max-height: 54px;
+	  object-fit: contain;
+	  filter: grayscale(0.3) brightness(0.97);
+	  opacity: 0.85;
+	  transition: filter 0.24s, opacity 0.18s, transform 0.15s;
+	  border-radius: 7px;
+	  background: #fff;
+	  padding: 6px;
+	}
+	.parceiros-grid img:hover {
+	  filter: grayscale(0) brightness(1.08) drop-shadow(0 2px 8px #b6ccfa55);
+	  opacity: 1;
+	  transform: scale(1.06);
+	}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
+	  <a href="#parceiros">Parceiros</a>
+      <a href="#contato">Contato</a>
+    </div>
+	<img class="card-img" src="images/logo_branco.png" alt="Consultoria" />
+    <h1><span></span>Vali Consultoria em Planos de Saúde</h1>
+    <p>
+      Transformando o cuidado com sua saúde e seu bolso.<br>
+      Consultoria especializada e personalizada para encontrar o plano ideal para você, família ou empresa.
+    </p>
+  </header>
+  <div class="container">
+    <div class="card" id="servicos">
+      <img class="card-logo" src="images/logo.jpg" alt="Consultoria" />
+      <div class="card-content">
+        <h2>O que a Vali faz por você</h2>
+        <ul>
+          <li>Revisão e análise de contratos de planos de saúde</li>
+          <li>Redução de custos e melhoria de benefícios</li>
+          <li>Atendimento para pessoas físicas, famílias e empresas</li>
+          <li>Consultoria totalmente personalizada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h2>Por que escolher a Vali?</h2>
+        <ul>
+          <li>Equipe com experiência e credibilidade</li>
+          <li>Transparência e ética em cada etapa</li>
+          <li>Acompanhamento completo: do início ao fim</li>
+          <li>Atendimento humanizado, rápido e sem compromisso</li>
+        </ul>
+      </div>
+      <img class="card-img" src="https://images.unsplash.com/photo-1457694587812-e8bf29a43845?auto=format&fit=crop&w=400&q=80" alt="Equipe Vali" />
+    </div>
+    <div class="cta-section" id="contato">
+      <h3>Fale agora com um consultor!</h3>
+      <p>Converse direto no WhatsApp e receba uma análise gratuita do seu plano, sem compromisso.</p>
+      <a
+        class="cta-btn"
+        href="https://wa.me/5511940700300?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20de%20saúde%20com%20a%20Vali%20Consultoria."
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fab fa-whatsapp"></i>
+        WhatsApp Consultoria
+      </a>
+      <small>
+        <i class="fa fa-clock"></i>
+        Atendimento das 8h às 18h
+      </small>
+    </div>
+    <div class="depoimentos-section" id="depoimentos">
+      <h2>O que nossos clientes dizem</h2>
+      <div class="depo-list">
+        <div class="depo">
+          <i class="fa fa-quote-left"></i>
+          Atendimento incrível! Me ajudaram a reduzir o valor do meu plano sem perder benefícios.
+          <strong>Maria S.</strong>
+        </div>
+        <div class="depo">
+          <i class="fa fa-quote-left"></i>
+          Profissionalismo e atenção do início ao fim. Recomendo a todos que querem cuidar do bolso e da saúde.
+          <strong>Roberto F.</strong>
+        </div>
+        <div class="depo">
+          <i class="fa fa-quote-left"></i>
+          Resolvi todas minhas dúvidas e consegui um ótimo plano para minha família. Obrigado!
+          <strong>Luciana P.</strong>
+        </div>
+      </div>
+    </div>
+    <div class="faq-section" id="faq">
+      <h2>Dúvidas Frequentes</h2>
+      <div class="faq-item">
+        <div class="faq-q">Preciso pagar pela análise do meu contrato?</div>
+        <div class="faq-a">Não, a análise é totalmente gratuita e sem compromisso. Nosso objetivo é orientar você da melhor forma.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso migrar de plano sem cumprir nova carência?</div>
+        <div class="faq-a">Em muitos casos, é possível aproveitar carências já cumpridas. Nossa equipe avalia sua situação para oferecer a melhor opção.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Vocês atendem empresas?</div>
+        <div class="faq-a">Sim! Atendemos pessoas físicas, famílias e empresas de todos os portes, oferecendo soluções sob medida.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como entro em contato com a Vali?</div>
+		<div class="faq-a">
+		  Basta clicar no botão de WhatsApp nesta página, ou se preferir, envie um e-mail para 
+		  <a href="mailto:comercial@valiconsultoria.com.br">comercial@valiconsultoria.com.br</a>.
+		</div>      </div>
+    </div>
+	<div class="parceiros-section" id="parceiros">
+  <h2>Nossos Parceiros</h2>
+  <p>Trabalhamos com as principais operadoras de saúde do Brasil:</p>
+  <div class="parceiros-grid">
+    <!-- Os logos são inseridos aqui -->
+    <div><img src="parceiros/Alice.png" alt="Alice"></div>
+    <div><img src="parceiros/Amil.png" alt="Amil"></div>
+    <div><img src="parceiros/Amil One.png" alt="Amil One"></div>
+    <div><img src="parceiros/Bradesco.png" alt="Bradesco"></div>
+    <div><img src="parceiros/Hapvida.jpg" alt="Hapvida"></div>
+    <div><img src="parceiros/Medsenior.png" alt="MedSenior"></div>
+    <div><img src="parceiros/Omint.png" alt="Omint"></div>
+    <div><img src="parceiros/Porto.png" alt="Porto"></div>
+    <div><img src="parceiros/Prevent.png" alt="Prevent Senior"></div>
+    <div><img src="parceiros/Qualicorp.png" alt="Qualicorp"></div>
+    <div><img src="parceiros/SulAmerica.png" alt="SulAmerica"></div>
+    <div><img src="parceiros/Unimed.png" alt="Unimed"></div>
+  </div>
+</div>
+
+  </div>
+  <footer>
+    © 2025 Vali Consultoria em Planos de Saúde. Todos os direitos reservados.
+  </footer>
+  <script>
+    // FAQ acordeão simples
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const open = q.classList.toggle('open');
+        q.nextElementSibling.classList.toggle('open', open);
+      });
+    });
+  </script>
+</body>
+</html>
